@@ -46,6 +46,12 @@ function App() {
       btnRandom={btnRandom}
       appStyle={appStyle}
       />
+      <footer>
+      <div className="box__copyright">
+        <p className="footer-copyright__pie" style={{color: colorRandom}}>Copyright &copy; 2022 Todos los Derechos Reservados.</p>
+        <p className="footer-copyright__pie" style={{color: colorRandom}} >Desarrollado por Jorge Gomez</p>
+      </div>
+      </footer>
     </div>
   )
 }

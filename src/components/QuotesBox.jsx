@@ -17,7 +17,7 @@ const QuotesBox = ({quotesRandom, colorRandom, btnRandom, appStyle}) => {
                 //! Button
             }   
             <div className='box-son-p-btn' style={{color: colorRandom}}>
-                <p>{quotesRandom.author}</p>
+                <p className='style-p-box-son' >{quotesRandom.author}</p>
                 <button className='btn'style={{backgroundColor: colorRandom}} onClick={() => {btnRandom() }} >{'>'}</button>
             </div>
         </div>
