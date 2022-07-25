@@ -1,32 +1,51 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
 import './App.css'
+import QuotesBox from './components/QuotesBox'
+import colors from './utils/colors'
+import quotes from './json/quotes.json'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [quotesRandom, setQuotesRandom] = useState(getRandomQuotes(quotes))
+  const [colorRandom, setColorRandom] = useState(getRandomColors(colors))
 
+  {
+    //! Quotes Random
+  }
+  function getRandomQuotes() {
+    for (let i = 0; i < quotes.length;) {
+      return quotes[Math.floor(Math.random() * quotes.length)];
+    }
+  }
+  {
+    //! Quotes Colors
+  }
+  function getRandomColors() {
+    for (let i = 0; i < colors.length;) {
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+  }
+  {
+    //! Select Random - Btn
+  }
+  const btnRandom = () => {
+    setQuotesRandom(getRandomQuotes(quotes))
+    setColorRandom(getRandomColors(colors))
+  }
+  {
+    //! Colors All Box
+  }
+  const appStyle = {
+    backgroundColor: colorRandom
+  }
+ 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div className="App" style={appStyle}>
+      <QuotesBox 
+      quotesRandom={quotesRandom}
+      colorRandom={colorRandom}
+      btnRandom={btnRandom}
+      appStyle={appStyle}
+      />
     </div>
   )
 }
